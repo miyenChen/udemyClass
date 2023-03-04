@@ -1,0 +1,92 @@
+#background-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+.bubble {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0 20px 30px rgba(255, 255, 255, 1);
+}
+@keyframes bubbleAnimate {
+    0% {
+        margin-top: 1000px;
+    }
+    100% {
+        margin-top: -100%;
+    }
+}
+@keyframes sideways {
+    0% {
+        margin-left: 0px;
+    }
+    100% {
+        margin-left: 80px;
+    }
+}
+.x1 {
+    animation: bubbleAnimate 25s linear infinite, sideways 2s ease-in-out infinite alternate;
+    left: 5%;
+    top: 15%;
+    transform: scale(0.5);
+}
+.x2 {
+    animation: bubbleAnimate 20s linear infinite, sideways 4s ease-in-out infinite alternate;
+    left: 50%;
+    top: 50%;
+    transform: scale(0.9);
+}
+.x3 {
+    animation: bubbleAnimate 15s linear infinite, sideways 3s ease-in-out infinite alternate;
+    left: 25%;
+    top: 35%;
+    transform: scale(0.7);
+}
+.x4 {
+    animation: bubbleAnimate 30s linear infinite, sideways 2s ease-in-out infinite alternate;
+    left: 60%;
+    top: 35%;
+    transform: scale(0.5);
+}
+.x5 {
+    animation: bubbleAnimate 40s linear infinite, sideways 2s ease-in-out infinite alternate;
+    left: 85%;
+    top: 55%;
+    transform: scale(0.7);
+}
+.x6 {
+    animation: bubbleAnimate 18s linear infinite, sideways 4s ease-in-out infinite alternate;
+    left: 2%;
+    top: 95%;
+    transform: scale(0.3);
+}
+.x7 {
+    animation: bubbleAnimate 18s linear infinite, sideways 2s ease-in-out infinite alternate;
+    left: 45%;
+    top: 15%;
+    transform: scale(0.4);
+}
+.x8 {
+    animation: bubbleAnimate 30s linear infinite, sideways 2s ease-in-out infinite alternate;
+    left: 35%;
+    top: 85%;
+    transform: scale(0.5);
+}
+.x9 {
+    animation: bubbleAnimate 15s linear infinite, sideways 2s ease-in-out infinite alternate;
+    left: 75%;
+    top: 15%;
+    transform: scale(0.2);
+}
+.x10 {
+    animation: bubbleAnimate 25s linear infinite, sideways 2s ease-in-out infinite alternate;
+    left: 70%;
+    top: 55%;
+    transform: scale(0.8);
+}
