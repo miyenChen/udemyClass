@@ -59,27 +59,39 @@ const Student = mongoose.model('Student', studentSchema);
 //         other: 1000,
 //     },
 // });
-
-Student.find({})
-    .exec() //mongoose query用的function
-    .then((data) => {
-        console.log(data);
-    })
-    .catch((e) => {
-        console.log(e);
-    });
-
+//存資料
 //注意使用mongoose.save()時要先把伺服器停掉
 //newObject.save()是一個promise object，所以可以直接用then查看是否儲存成功
-newObject
-    .save()
-    .then((saveObject) => {
-        console.log('資料儲存完畢，內容：');
-        console.log(saveObject);
-    })
-    .catch((e) => {
+// newObject
+//     .save()
+//     .then((saveObject) => {
+//         console.log('資料儲存完畢，內容：');
+//         console.log(saveObject);
+//     })
+//     .catch((e) => {
+//         console.log(e);
+//     });
+
+// // 查詢資料庫所有內容
+// Student.find({})
+//     .exec() //mongoose query用的function
+//     .then((data) => {
+//         console.log(data);
+//     })
+//     .catch((e) => {
+//         console.log(e);
+//     });
+
+// asyncz方式直接建立 web sever
+app.get('/', async (req, res) => {
+    try {
+        let data = await Student.findOne({ name: 'Tank Lee' }).exec();
+        res.send(data);
+        // console.log(data);
+    } catch (res) {
         console.log(e);
-    });
+    }
+});
 
 app.listen(3000, () => {
     console.log('server is working');
