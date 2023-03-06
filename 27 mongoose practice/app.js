@@ -46,9 +46,10 @@ const studentSchema = new Schema({
         other: Number,
     },
 });
-//model('collection', collectionSchema);
-//注意`: collection 要大寫，單數，會自動轉換為 Student => students
-//注意： collectionSchema 的 collection 是小寫單數
+// //model('collection', collectionSchema);
+// //注意`: collection 要大寫，單數
+// // 會自動轉換為 Student => students
+// //注意： collectionSchema 的 collection 是小寫單數
 const Student = mongoose.model('Student', studentSchema);
 // const newObject = new Student({
 //     name: 'Tank Lee',
@@ -59,9 +60,9 @@ const Student = mongoose.model('Student', studentSchema);
 //         other: 1000,
 //     },
 // });
-//存資料
-//注意使用mongoose.save()時要先把伺服器停掉
-//newObject.save()是一個promise object，所以可以直接用then查看是否儲存成功
+// //存資料
+// //注意使用mongoose.save()時要先把伺服器停掉
+// //newObject.save()是一個promise object，所以可以直接用then查看是否儲存成功
 // newObject
 //     .save()
 //     .then((saveObject) => {
@@ -72,26 +73,35 @@ const Student = mongoose.model('Student', studentSchema);
 //         console.log(e);
 //     });
 
-// // 查詢資料庫所有內容
-// Student.find({})
-//     .exec() //mongoose query用的function
-//     .then((data) => {
-//         console.log(data);
+// // asyncz方式直接建立 web sever
+// app.get('/', async (req, res) => {
+//     try {
+//         let data = await Student.findOne({ name: 'Tank Lee' }).exec();
+//         res.send(data);
+//         // console.log(data);
+//     } catch (res) {
+//         console.log(e);
+//     }
+// });
+
+// Student.updateOne({ age: 28 }, { age: 26 })
+//     .exec()
+//     .then((msg) => {
+//         console.log(msg);
 //     })
 //     .catch((e) => {
 //         console.log(e);
 //     });
 
-// asyncz方式直接建立 web sever
-app.get('/', async (req, res) => {
-    try {
-        let data = await Student.findOne({ name: 'Tank Lee' }).exec();
-        res.send(data);
-        // console.log(data);
-    } catch (res) {
+// 查詢資料庫所有內容
+Student.find({})
+    .exec() //mongoose query用的function
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((e) => {
         console.log(e);
-    }
-});
+    });
 
 app.listen(3000, () => {
     console.log('server is working');
